@@ -7,44 +7,246 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h>
 
 / {
     chosen { zmk,physical-layout = &default_layout; };
 };
 
 / {
+    behaviors {
+        dt_comma_period: dt_comma_period {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_COMMA_PERIOD";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp PERIOD>;
+        };
+
+        dt_hash_amp: dt_hash_amp {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_HASH_AMP";
+            #binding-cells = <0>;
+            bindings = <&kp HASH>, <&kp AMPS>;
+        };
+
+        dt_excl_quest: dt_excl_quest {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_EXCL_QUEST";
+            #binding-cells = <0>;
+            bindings = <&kp EXCL>, <&kp QUESTION>;
+        };
+
+        dt_parentheses: dt_parentheses {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_PARENTHESES";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
+        };
+
+        dmt_ctrl_hash_amp: dmt_ctrl_hash_amp {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DMT_CTRL_HASH_AMP";
+            #binding-cells = <0>;
+            bindings = <&mt LEFT_CONTROL HASH>, <&kp AMPS>;
+        };
+
+        dmt_alt_excl_quest: dmt_alt_excl_quest {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DMT_ALT_EXCL_QUEST";
+            #binding-cells = <0>;
+            bindings = <&mt LEFT_ALT EXCLAMATION>, <&kp QUESTION>;
+        };
+
+        dmt_shift_parentheses: dmt_shift_parentheses {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DMT_SHIFT_PARENTHESES";
+            #binding-cells = <0>;
+            bindings =
+                <&mt LEFT_SHIFT LEFT_PARENTHESIS>,
+                <&kp RIGHT_PARENTHESIS>;
+        };
+
+        dmt_ctrl_dollar_pct: dmt_ctrl_dollar_pct {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DMT_CTRL_DOLLAR_PCT";
+            #binding-cells = <0>;
+            bindings = <&mt LEFT_CONTROL DOLLAR>, <&kp PERCENT>;
+        };
+
+        dmt_alt_grave_tilde: dmt_alt_grave_tilde {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DMT_ALT_GRAVE_TILDE";
+            #binding-cells = <0>;
+            bindings = <&mt LEFT_ALT GRAVE>, <&kp TILDE>;
+        };
+
+        dt_quotes: dt_quotes {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_QUOTES";
+            #binding-cells = <0>;
+            bindings = <&kp SINGLE_QUOTE>, <&kp DOUBLE_QUOTES>;
+        };
+
+        dt_asterisk_caret: dt_asterisk_caret {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_ASTERISK_CARET";
+            #binding-cells = <0>;
+            bindings = <&kp ASTERISK>, <&kp CARET>;
+        };
+
+        dt_lt_gt: dt_lt_gt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_LT_GT";
+            #binding-cells = <0>;
+            bindings = <&kp LT>, <&kp GREATER_THAN>;
+        };
+
+        dt_pipe_bslash: dt_pipe_bslash {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_PIPE_BSLASH";
+            #binding-cells = <0>;
+            bindings = <&kp PIPE>, <&kp BACKSLASH>;
+        };
+
+        dt_fslash_uscore: dt_fslash_uscore {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_FSLASH_USCORE";
+            #binding-cells = <0>;
+            bindings = <&kp SLASH>, <&kp UNDERSCORE>;
+        };
+
+        dt_min_plus: dt_min_plus {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_MIN_PLUS";
+            #binding-cells = <0>;
+            bindings = <&kp KP_MINUS>, <&kp KP_PLUS>;
+        };
+
+        dt_curly_bracket: dt_curly_bracket {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_CURLY_BRACKET";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
+        };
+
+        dt_square_bracket: dt_square_bracket {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_SQUARE_BRACKET";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT>, <&kp RIGHT_BRACKET>;
+        };
+
+        dt_colons: dt_colons {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_COLONS";
+            #binding-cells = <0>;
+            bindings = <&kp COLON>, <&kp SEMICOLON>;
+        };
+
+        dt_eq_at: dt_eq_at {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DT_EQ_AT";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL>, <&kp AT_SIGN>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        sum_12 {
+            bindings = <&kp KP_N3>;
+            key-positions = <8 9>;
+            layers = <2>;
+        };
+
+        sum_13 {
+            bindings = <&kp KP_NUMBER_4>;
+            key-positions = <10 8>;
+            layers = <2>;
+        };
+
+        sum_14 {
+            bindings = <&kp KP_N5>;
+            key-positions = <11 8>;
+            layers = <2>;
+        };
+
+        sum_23 {
+            bindings = <&kp KP_N5>;
+            key-positions = <9 10>;
+            layers = <2>;
+        };
+
+        sum_24 {
+            bindings = <&kp KP_N6>;
+            key-positions = <9 11>;
+            layers = <2>;
+        };
+
+        sum_34 {
+            bindings = <&kp KP_N7>;
+            key-positions = <11 10>;
+            layers = <2>;
+        };
+
+        sum_123 {
+            bindings = <&kp KP_N6>;
+            key-positions = <8 9 10>;
+            layers = <2>;
+        };
+
+        sum_124 {
+            bindings = <&kp KP_N7>;
+            key-positions = <10 8 11>;
+            layers = <2>;
+        };
+
+        sum_234 {
+            bindings = <&kp KP_NUMBER_9>;
+            key-positions = <10 11 9>;
+            layers = <2>;
+        };
+
+        sum_1234 {
+            bindings = <&kp KP_N0>;
+            key-positions = <10 11 9 8>;
+            layers = <2>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "QWERTY";
+            display-name = "QWERTY R";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp C_PP  &kp Y      &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp RALT  &kp H      &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&trans  &trans  &trans  &trans  &trans  &trans                    &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                        &trans  &trans  &trans                    &kp SPACE  &mo 2  &mo 1
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mt GLOBE TAB            &kp Y        &kp U         &kp I             &kp O     &kp P         &mt LEFT_CONTROL BACKSPACE
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mt LEFT_COMMAND ESCAPE  &kp H        &kp J         &kp K             &kp L     &kp UP_ARROW  &mt LEFT_ALT ENTER
+&trans  &trans  &trans  &trans  &trans  &trans                                   &kp N        &kp M         &dt_comma_period  &kp LEFT  &kp DOWN      &mt LEFT_SHIFT RIGHT
+                        &trans  &trans  &trans                                   &lt 1 SPACE  &lt 2 C_MUTE  &kp C_PP
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
         };
 
         lower_layer {
-            display-name = "NUMBER";
+            display-name = "QUERTY L";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp RCTRL  &kp N6    &kp N7    &kp N8     &kp N9     &kp N0  &kp BSPC
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp RALT   &kp LEFT  &kp DOWN  &kp UP     &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                     &trans    &trans    &trans     &trans     &trans  &trans
-                        &trans  &trans  &trans                     &kp LGUI  &trans    &kp SPACE
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mt GLOBE C_VOL_DN         &kp Q   &kp W         &kp E         &kp R  &kp T  &dmt_ctrl_hash_amp
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mt LEFT_COMMAND C_VOL_UP  &kp A   &kp S         &kp D         &kp F  &kp G  &dmt_alt_excl_quest
+&trans  &trans  &trans  &trans  &trans  &trans                                     &kp Z   &kp X         &kp C         &kp V  &kp B  &dmt_shift_parentheses
+                        &trans  &trans  &trans                                     &trans  &bt BT_SEL 0  &bt BT_SEL 1
             >;
         };
 
         raise_layer {
             display-name = "SYMBOL";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp RCTRL  &kp CARET  &kp AMPS   &kp ASTRK     &kp LPAR      &kp RPAR    &kp BSPC
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp RALT   &kp MINUS  &kp EQUAL  &kp LBKT      &kp RBKT      &kp BSLH    &kp GRAVE
-&trans  &trans  &trans  &trans  &trans  &trans                     &kp UNDER  &kp PLUS   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_CLR  &kp TILDE
-                        &trans  &trans  &trans                     &kp RET    &trans     &kp RALT
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mt GLOBE C_PREV         &kp NUMBER_1  &kp NUMBER_2        &kp NUMBER_3        &kp NUMBER_4     &kp NUMBER_0       &dmt_ctrl_dollar_pct
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mt LEFT_COMMAND C_NEXT  &dt_quotes    &dt_asterisk_caret  &dt_lt_gt           &dt_pipe_bslash  &dt_fslash_uscore  &dmt_alt_grave_tilde
+&trans  &trans  &trans  &trans  &trans  &trans                                   &dt_min_plus  &dt_curly_bracket   &dt_square_bracket  &dt_colons       &dt_eq_at          &mt LEFT_SHIFT X
+                        &trans  &trans  &trans                                   &bt BT_CLR    &trans              &rgb_ug RGB_TOG
             >;
         };
 
@@ -52,7 +254,7 @@
             display-name = "EXTRA";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp X   &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans                  &trans  &trans  &trans
             >;
