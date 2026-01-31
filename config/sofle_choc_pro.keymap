@@ -61,7 +61,7 @@
         accente: accente {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RIGHT_BRACKET &kp E>;
+            bindings = <&kp APOS &kp E>;
             label = "ACCENTE";
         };
     };
